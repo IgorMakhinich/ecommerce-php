@@ -1,45 +1,46 @@
-<?php require_once("../resources/config.php")?>
+<?php require_once("../resources/config.php") ?>
 
 <?php include(TEMPLATE_FRONT . DS . "header.php") ?>
 
-    <!-- Page Content -->
-    <div class="container">
+<!-- Page Content -->
+<div class="container">
 
-        <div class="row">
+    <div class="row">
 
-            <!-- Categories here -->
+        <!-- Categories here -->
 
-            <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
+        <?php include(TEMPLATE_FRONT . DS . "side_nav.php") ?>
 
-            <div class="col-md-9">
+        <div class="col-md-9">
 
-                <div class="row carousel-holder">
+            <div class="row carousel-holder">
 
-                    <div class="col-md-12">
-                        <!-- Carousel -->
-                        <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
-                    </div>
-
+                <div class="col-md-12">
+                    <!-- Carousel -->
+                    <?php include(TEMPLATE_FRONT . DS . "slider.php") ?>
                 </div>
 
-                <div class="row">
+            </div>
 
-                    <?php get_products();?>
+            <div class="row">
 
-                    <div class="col-sm-4 col-lg-4 col-md-4">
-                        <h4><a href="#">Like this template?</a>
-                        </h4>
-                        <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                        <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                    </div>
+                <?php get_products(); ?>
 
-                </div> <!--ROW ENDS HERE-->
+                <div class="col-sm-4 col-lg-4 col-md-4">
+                    <h4><a href="#">Like this template?</a>
+                    </h4>
+                    <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
+                    <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
+                </div>
 
             </div>
+            <!--ROW ENDS HERE-->
 
         </div>
 
     </div>
-    <!-- /.container -->
 
-    <?php include(TEMPLATE_FRONT . DS . "footer.php") ?>    
+</div>
+<!-- /.container -->
+
+<?php include(TEMPLATE_FRONT . DS . "footer.php") ?>

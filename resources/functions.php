@@ -2,16 +2,18 @@
 
 // helper functions
 
-function set_message($msg){
-	if(!empty($msg)) {
+function set_message($msg)
+{
+	if (!empty($msg)) {
 		$_SESSION['message'] = $msg;
 	} else {
 		$msg = "";
 	}
 }
 
-function display_message(){
-	if(isset($_SESSION['message'])){
+function display_message()
+{
+	if (isset($_SESSION['message'])) {
 		echo $_SESSION['message'];
 		unset($_SESSION['message']);
 	}
@@ -23,8 +25,8 @@ if (!$connection) {
 	echo "Текст ошибки error: " . mysqli_connect_error() . PHP_EOL;
 	exit;
 } else {
-	echo "Соединение с MySQL установлено!" . PHP_EOL;
-	echo "Информация о сервере: " . mysqli_get_host_info($connection) . PHP_EOL;
+	// echo "Соединение с MySQL установлено!" . PHP_EOL;
+	// echo "Информация о сервере: " . mysqli_get_host_info($connection) . PHP_EOL;
 }
 
 function redirect($location)
@@ -79,7 +81,7 @@ function get_products()
         <h4><a href="item.php?id={$row['product_id']}">{$row['product_title']}</a>
         </h4>
         <p>{$out_descr}</p>
-        <a class="btn btn-primary" target="_blank" href="item.php?id={$row['product_id']}">Add To Cart</a>
+        <a class="btn btn-primary" target="_blank" href="cart.php?add={$row['product_id']}">Add To Cart</a>
     </div>
     <div class="ratings">
         <p class="pull-right">15 reviews</p>
@@ -168,15 +170,16 @@ DELIMETER;
 	}
 }
 
-function login_user(){
-	if(isset($_POST['submit'])){
+function login_user()
+{
+	if (isset($_POST['submit'])) {
 		$username = escape_string($_POST['username']);
 		$password = escape_string($_POST['password']);
 
 		$query = query("SELECT * FROM users WHERE username = '{$username}' AND password = '{$password}'");
 		confirm($query);
 
-		if(mysqli_num_rows($query) == 0) {
+		if (mysqli_num_rows($query) == 0) {
 			set_message("Your Password or Username are wrong");
 			redirect("login.php");
 		} else {
@@ -186,8 +189,9 @@ function login_user(){
 	}
 }
 
-function send_message(){
-	if(isset($_POST['submit'])){
+function send_message()
+{
+	if (isset($_POST['submit'])) {
 		$to = "someEmailaddres@gmail.com";
 		$from_name = $_POST['name'];
 		$subject = $_POST['subject'];
@@ -198,7 +202,7 @@ function send_message(){
 
 		$result = mail($to, $subject, $message, $headers);
 
-		if(!$result){
+		if (!$result) {
 			set_message("Sorry we could not send your message");
 			redirect("contact.php");
 		} else {
